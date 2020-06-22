@@ -1,0 +1,8 @@
+en:
+  hello: "Hello world"
+  product_name: "HOPMAN"
+  navbar:
+    sign_in: "Sign IN"
+    sign_up: "Sign UP"
+    edit_profile: "Edit"
+    sign_out: "Logout"
