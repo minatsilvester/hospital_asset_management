@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :hospitals
 
   #devise generated controller for users
-  devise_for :users
+  #since we needed to make changes in controller, and generated those files, we n=must speify the controllers
+  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
 
   #welcome page
   get 'welcome/index'

@@ -8,12 +8,11 @@ class HospitalsController < ApplicationController
 
   #create action checks for presence and then add if hospital does not exists
   def create
-    if Hospital.find_by(hospital_params[:primary_email])
+    if Hospital.find_by(primary_email: hospital_params[:primary_email])
       redirect_to root_path, notice: "Hospital Already Exists"
     else
       @hospital = Hospital.save(hospital_params)
     end
-    render plain: hospital_params.inspect
   end
 
   #not yet done anything with the show action
