@@ -1,8 +1,16 @@
 en:
   hello: "Hello world"
   product_name: "HOPMAN"
+  fill-in: "Fill in"
+  hospital_details: "details of the hospital"
   navbar:
     sign_in: "Sign IN"
     sign_up: "Sign UP"
     edit_profile: "Edit"
     sign_out: "Logout"
+  hospital:
+    new:
+      registration_heading: "Registering your hospital takes a couple of steps"
+      registration_step_1: "We need your hospital details, filling it is the first step"
+      registration_step_2: "Once hospital is registered, we need one admin user whose details you will have to provide"
+      registration_reading_done?: "Done reading?"  

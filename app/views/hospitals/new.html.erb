@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 top-gap">
+      <h1 class="heading"><%= t 'hospital.new.registration_heading' %></h1>
+      <br/>
+      <div>
+        <ul class="rules-list">
+          <li><%= t 'hospital.new.registration_step_1' %></li>
+          <li><%= t 'hospital.new.registration_step_2' %></li>
+        </ul>
+      </div>
+      <h3 class="heading"><%= t 'hospital.new.registration_reading_done?' %></h3>
+      <h3 class="heading"><%= t 'fill_in' %> <%= t 'hospital_details' %></h3>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 top-gap" >
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

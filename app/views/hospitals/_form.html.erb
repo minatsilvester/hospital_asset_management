@@ -1,0 +1,12 @@
+<%= simple_form_for @hospital do |f| %>
+  <%= f.input :name, input_html: {required: true} %>
+  <%= f.input :primary_email, input_html: {required: true} %>
+  <%= f.input :country, :input_html => {id: "hospital-country", required: true} %>
+  <%= f.input :state, collection: [] , :input_html => {id: "hospital-state", required: true} %>
+  <%= f.input :city, collection: [], input_html: {id: "hospital-city", required: true} %>
+  <%= f.input :address, input_html: {required: true} %>
+  <%= f.input :phone, input_html: {required: true} %>
+  <%= f.button :submit, class: "btn btn-outline-primary" %>
+<% end %>
+
+<%= javascript_pack_tag 'hospital', 'data-turbolinks-track': 'reload' %>

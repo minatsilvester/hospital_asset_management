@@ -1,0 +1,10 @@
+
+
+/* A css collection for hosptital model's html */
+/* Please place evry css realted to hospitals here */
+
+.rules-list li{
+  color: red;
+  font-size: 2vh;
+  list-style-type: circle;
+}
