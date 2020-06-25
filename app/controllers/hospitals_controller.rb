@@ -6,7 +6,17 @@ class HospitalsController < ApplicationController
     @states = nil
   end
 
-  #not yt done anything with the show action
+  #create action checks for presence and then add if hospital does not exists
+  def create
+    if Hospital.find_by(hospital_params[:primary_email])
+      redirect_to root_path, notice: "Hospital Already Exists"
+    else
+      @hospital = Hospital.save(hospital_params)
+    end
+    render plain: hospital_params.inspect
+  end
+
+  #not yet done anything with the show action
   def show
   end
 
@@ -22,7 +32,7 @@ class HospitalsController < ApplicationController
       symbolized_country = country.parameterize.underscore.to_sym #"IN" -> :in
       @states = CS.get(symbolized_country)
       # @states = ["tn", "mh"]
-      puts(@states)
+      # puts(@states)
     end
     #responding to the get request wit a json object
     respond_to do |format|
@@ -42,7 +52,7 @@ class HospitalsController < ApplicationController
       symbolized_country = country.parameterize.underscore.to_sym #"IN" -> :in
       @cities = CS.get(symbolized_country, state)
       # @states = ["tn", "mh"]
-      puts(@cities)
+      # puts(@cities)
     end
     #responding to the get request wit a json object
     respond_to do |format|
