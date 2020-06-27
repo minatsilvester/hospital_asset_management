@@ -41,7 +41,7 @@ $(document).ready(function() {
         var listitems = [];
         //convert key, value objects into list to append to html
         $.each(data, function(key, value){
-          listitems += '<option value="' + key+ '">' + value + '</option>';
+          listitems += '<option value="' + value+ '">' + value + '</option>';
         })
         // console.log(listitems)
         $("#hospital-city").append(listitems)

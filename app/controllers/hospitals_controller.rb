@@ -3,15 +3,17 @@ class HospitalsController < ApplicationController
   #new action needs hospital initialized so that simple_form_for will work
   def new
     @hospital = Hospital.new
-    @states = nil
   end
 
   #create action checks for presence and then add if hospital does not exists
   def create
-    if Hospital.find_by(primary_email: hospital_params[:primary_email])
-      redirect_to root_path, notice: "Hospital Already Exists"
+    @hospital = Hospital.new(hospital_params)
+    already_existing_hospital = Hospital.find_by(primary_email: hospital_params[:primary_email])
+    if already_existing_hospital
+      redirect_to new_user_registration_path(hospital_exists?: true), notice: "Hospital Already Exists"
     else
-      @hospital = Hospital.save(hospital_params)
+      @saved_hospital = @hospital.save
+      redirect_to new_user_registration_path(hospital_exists?:true)
     end
   end
 
@@ -19,7 +21,7 @@ class HospitalsController < ApplicationController
   def show
   end
 
-  #action for getting state list based on country
+  #action for getting state list based on countrysa
   #responds with a json captured and sent to form by hospital.js
   def populate_state_list
     country = params[:country]
