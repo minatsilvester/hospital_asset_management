@@ -7,11 +7,14 @@ class HospitalsController < ApplicationController
 
   #create action checks for presence and then add if hospital does not exists
   def create
+    #create a object for Hospital class
     @hospital = Hospital.new(hospital_params)
-    already_existing_hospital = Hospital.find_by(primary_email: hospital_params[:primary_email])
+    already_existing_hospital = Hospital.find_by(primary_email: hospital_params[:primary_email]) #checking for already existing entry
     if already_existing_hospital
+      # if entry exists take to create user page
       redirect_to new_user_registration_path(hospital_exists?: true), notice: "Hospital Already Exists"
     else
+      #othersie just create and take to create user, the first user should be the admin of that hospital
       @saved_hospital = @hospital.save
       redirect_to new_user_registration_path(hospital_exists?:true)
     end

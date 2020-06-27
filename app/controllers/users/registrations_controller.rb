@@ -6,8 +6,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    #check if action came through hospital_controller create action
     hospital_exists = params[:hospital_exists?]
     if !hospital_exists
+      # if it did not force user to create a hospitals
       redirect_to new_hospital_path
       return
     end
